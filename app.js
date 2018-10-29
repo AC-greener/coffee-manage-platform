@@ -27,13 +27,19 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
-// error handler
+var mongoose = require('mongoose');
+var db = mongoose.createConnection('mongodb://127.0.0.1:27017/coffeemanage');
+
+db.on('error', console.error.bind(console, '数据库连接失败'));
+
+db.once('open', function (callback) {
+  console.log("数据库成功连接");
+});
+
+
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
   res.status(err.status || 500);
   res.render('error');
 });
