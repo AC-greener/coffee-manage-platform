@@ -3,13 +3,12 @@ var createError = require('http-errors')
     ,path = require('path')
     ,cookieParser = require('cookie-parser')
     ,logger = require('morgan')
-    ,orderRouter = require('./routes/order')
-    ,orderInfoRouter = require('./routes/orderInfo')
-    ,manageUserRouter = require('./routes/manageUser')
-    ,manageGoodsRouter = require('./routes/manageGoods')
+    ,viewsRouter = require('./routes')
+ 
+    ,postRouter = require('./routes/postApi/index')
+    ,getRouter = require('./routes/getApi/index')
 
 var app = express();
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -19,12 +18,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', orderRouter);
-app.use('/orderInfo', orderInfoRouter);
-app.use('/manageGoods', manageGoodsRouter);
-app.use('/manageUser', manageUserRouter);
+app.use('/', viewsRouter);
+app.use('/getapi', getRouter);
+app.use('/postapi', postRouter);
 
-// catch 404 and forward to error handler
+
+
 app.use(function(req, res, next) {
   next(createError(404));
 });
@@ -47,3 +46,4 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+// supervisor ./bin/www
