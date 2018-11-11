@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,86 +14,86 @@
       margin-top: 20px;
       margin-bottom: 20px;
     }
+
     header h3 {
-      font-family:'Pacifico', 'Courier New', Courier, monospace
+      font-family: 'Pacifico', 'Courier New', Courier, monospace
     }
+
     .form-horizontal {
       margin: 0 auto;
     }
-    table tr:hover{
+
+    table tr:hover {
       background-color: #eee;
     }
-
   </style>
 </head>
+
 <body>
   <header>
     <h3 class="text-center">Welcome To Sunshine Coffee </h3>
   </header>
   <div class="container-fluid wrapper">
-      <!-- <h5 class="text-center">添加商品</h5> -->
-      <div class="row">
-        <div class="col-sm-6 col-sm-offset-3" style="margin-bottom:20px">
-            <h4 class="text-center"><strong>下单</strong></h4>
-            <form class="form-inline">
-              <div class="form-group">
-                <label for="exampleInputName2">名称： </label>
-                <input type="text" class="form-control" id="exampleInputName2" placeholder="阿萨姆奶茶">
-              </div>
-              <div class="form-group" style="margin-left:10px">
-                <label for="exampleInputEmail2">数量： </label>
-                <input type="number" class="form-control" id="exampleInputEmail2" placeholder="1">
-              </div>
-              <button type="submit" class="btn btn-default " style="margin-left:10px; padding: 6px 36px">提交</button>
-            </form>
-        </div>
+    <!-- <h5 class="text-center">添加商品</h5> -->
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3" style="margin-bottom:20px">
+        <h4 class="text-center"><strong>下单a </strong></h4>
+        <form class="form-inline" method="POST" action="/postapi/addOrder">
+          <div class="form-group">
+            <label for="goodsname">名称： </label>
+            <input type="text" class="form-control" id="goodsname" name="orderName" placeholder="阿萨姆奶茶">
+          </div>
+          <div class="form-group" style="margin-left:10px">
+            <label for="goodscount">数量： </label>
+            <input type="number" class="form-control" id="goodscount" name="orderCount" placeholder="1">
+          </div>
+          <button type="submit" class="btn btn-default " style="margin-left:10px; padding: 6px 36px">提交</button>
+        </form>
       </div>
-     
-     <div class="row">
-       <h4 class="text-center"><strong>饮品种类</strong></h4>
-       <div class="col-sm-6 col-sm-offset-3">
-          <table class="table table-bordered text-center hover ">
-              <thead>
-                <tr>
-                  <td><strong>名称</strong></td>
-                  <td><strong>单价(元)</strong></td>
-                </tr>
-              </thead>
-              <tbody>
-                  <tr>
-                      <td>乌龙茶</td>
-                      <td>10</td>
-                  </tr>
-                  <tr>
-                      <td>冰红茶</td>
-                      <td>3</td>
-                  </tr>
-                  <tr>
-                      <td>哥伦比亚咖啡</td>
-                      <td>12</td>
-                  </tr>
-                  <tr>
-                      <td>茉莉清茶</td>
-                      <td>3</td>
-                  </tr>
-                  <tr>
-                      <td>巴西山度士咖啡 </td>
-                      <td>5</td>
-                  </tr>
-                  <tr>
-                      <td>依云矿泉水</td>
-                      <td>2</td>
-                  </tr>
-                  <tr>
-                      <td>水晶葡萄</td>
-                      <td>4</td>
-                  </tr>
-                 
-              </tbody>
-            </table>
-       </div>
-     </div>
-    
+    </div>
+    <div class="row">
+      <h4 class="text-center"><strong>饮品种类</strong></h4>
+      <div class="col-sm-6 col-sm-offset-3">
+        <table class="table table-bordered text-center hover ">
+          <thead>
+            <tr>
+              <td><strong>名称</strong></td>
+              <td><strong>单价(元)</strong></td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>乌龙茶</td>
+              <td>10</td>
+            </tr>
+            <tr>
+              <td>冰红茶</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td>哥伦比亚咖啡</td>
+              <td>12</td>
+            </tr>
+            <tr>
+              <td>茉莉清茶</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td>巴西山度士咖啡 </td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>依云矿泉水</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>水晶葡萄</td>
+              <td>4</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </body>
 </html>

@@ -33,17 +33,17 @@
         <h4 class="text-center"> <strong>任命管理员</strong></h4>
        <div class="row">
          <div class="col-sm-6 col-sm-offset-3">
-            <form class="form-horizontal" action="" >
+            <form class="form-horizontal" action="/postapi/addManager" method="POST">
                 <div class="form-group">
-                  <label for="Eclass" class="col-sm-3 control-label">易班ID:</label>
+                  <label for="Eclass" class="col-sm-3 control-label" >易班ID:</label>
                   <div class="col-sm-5">
-                    <input type="text" class="form-control" id="Eclass" placeholder="">
+                    <input type="text" class="form-control" id="userId" name='userId' placeholder="">
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="inputPassword3" class="col-sm-3 control-label">管理员类型:</label>
                   <div class="col-sm-5">
-                      <select class="form-control" id="inputPassword3">
+                      <select class="form-control" id="userType" name="userType">
                           <option>工作站老师</option>
                           <option>工作站学生</option>
                           <option>阳光咖啡管理员</option>

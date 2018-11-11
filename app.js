@@ -4,7 +4,6 @@ var createError = require('http-errors')
     ,cookieParser = require('cookie-parser')
     ,logger = require('morgan')
     ,viewsRouter = require('./routes')
- 
     ,postRouter = require('./routes/postApi/index')
     ,getRouter = require('./routes/getApi/index')
 
@@ -22,22 +21,9 @@ app.use('/', viewsRouter);
 app.use('/getapi', getRouter);
 app.use('/postapi', postRouter);
 
-
-
 app.use(function(req, res, next) {
   next(createError(404));
 });
-
-var mongoose = require('mongoose');
-var db = mongoose.createConnection('mongodb://127.0.0.1:27017/coffeemanage');
-
-db.on('error', console.error.bind(console, '数据库连接失败'));
-
-db.once('open', function (callback) {
-  console.log("数据库成功连接");
-});
-
-
 app.use(function(err, req, res, next) {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
